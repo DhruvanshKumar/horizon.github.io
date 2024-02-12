@@ -15,7 +15,10 @@
             position: absolute;
             background-color: white;
             border-radius: 50%;
-            animation: shooting 3s linear infinite; /* Adjust the animation duration as needed */
+            animation: blink 1s infinite alternate;
+        }
+        .shooting {
+            animation: shooting 3s linear infinite;
         }
 
         @keyframes shooting {
@@ -23,7 +26,19 @@
                 transform: translate(0, 0);
             }
             to {
-                transform: translate(100vw, 100vh); /* Adjust this to change the direction and distance of shooting */
+                transform: translate(100vw, 100vh);
+            }
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
             }
         }
     </style>
@@ -31,21 +46,25 @@
 <body>
     <script>
         function generateStars() {
-            const numStars = 100; // Adjust this number to change the density of stars
+            const numStars = 100;
 
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
-                const size = Math.random() * 2 + 1; // Random size between 1 and 3 pixels
+                const size = Math.random() * 2 + 1;
                 const x = Math.random() * window.innerWidth;
                 const y = Math.random() * window.innerHeight;
-                const animationDelay = Math.random() * 5; // Random delay for each star
+                const animationDelay = Math.random() * 5;
                 star.style.width = size + 'px';
                 star.style.height = size + 'px';
                 star.style.left = x + 'px';
                 star.style.top = y + 'px';
-                star.style.animationDelay = animationDelay + 's';
+                star.style.animationDelay = animationDelay + 's'; // Apply random delay
                 document.body.appendChild(star);
+
+                if (Math.random() < 0.3) {
+                    star.classList.add('shooting');
+                }
             }
         }
 
