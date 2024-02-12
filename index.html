@@ -2,10 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Horizon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starry Night</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+    </style>
 </head>
-<body bgcolor="blue">
-<h1>Horizon</h1>
-Hey this is the upcoming new website of the Horizon
+<body>
+    <script>
+        function generateStars() {
+            const numStars = 100; // Adjust this number to change the density of stars
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 2 + 1; // Random size between 1 and 3 pixels
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = x + 'px';
+                star.style.top = y + 'px';
+                document.body.appendChild(star);
+            }
+        }
+
+        window.onload = generateStars;
+    </script>
 </body>
 </html>
