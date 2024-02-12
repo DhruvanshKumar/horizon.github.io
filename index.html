@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starry Night</title>
+    <title>Shooting Stars</title>
     <style>
         body {
             background-color: black;
@@ -15,6 +15,16 @@
             position: absolute;
             background-color: white;
             border-radius: 50%;
+            animation: shooting 3s linear infinite; /* Adjust the animation duration as needed */
+        }
+
+        @keyframes shooting {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(100vw, 100vh); /* Adjust this to change the direction and distance of shooting */
+            }
         }
     </style>
 </head>
@@ -29,10 +39,12 @@
                 const size = Math.random() * 2 + 1; // Random size between 1 and 3 pixels
                 const x = Math.random() * window.innerWidth;
                 const y = Math.random() * window.innerHeight;
+                const animationDelay = Math.random() * 5; // Random delay for each star
                 star.style.width = size + 'px';
                 star.style.height = size + 'px';
                 star.style.left = x + 'px';
                 star.style.top = y + 'px';
+                star.style.animationDelay = animationDelay + 's';
                 document.body.appendChild(star);
             }
         }
