@@ -1,0 +1,36 @@
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: blink 1s infinite alternate;
+}
+.shooting {
+    animation: shooting 3s linear infinite;
+}
+
+@keyframes shooting {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(100vw, 100vh);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
