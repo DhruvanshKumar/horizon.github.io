@@ -1,21 +1,25 @@
 body {
-
     background-color: black;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .logo {
-    align-items: center;
-    margin-left: 33.5%;
+    width: 500px;
+    height: 500px; 
 }
+
 .star {
     position: absolute;
     background-color: white;
     border-radius: 50%;
     animation: blink 1s infinite alternate;
 }
+
 .shooting {
     animation: shooting 3s linear infinite;
 }
